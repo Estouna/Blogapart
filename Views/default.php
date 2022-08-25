@@ -16,7 +16,7 @@ include_once 'includes/header.php';
         </div>
     <?php endif; ?>
     <?php if (!empty($_SESSION['success'])) : ?>
-        <div class="alert-success">
+        <div class="succes">
             <?php
             echo $_SESSION['success'];
             unset($_SESSION['success']);

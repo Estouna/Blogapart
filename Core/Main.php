@@ -2,12 +2,12 @@
 
 namespace App\Core;
 
-use App\Controllers\AccueilController;
+use App\Controllers\MainController;
 
 /**
  * Routeur principal
  */
-class Accueil
+class Main
 {
     public function start()
     {
@@ -59,7 +59,7 @@ class Accueil
         } else {
 
             // Controller par défaut
-            $controller = new AccueilController;
+            $controller = new MainController;
             $controller->index();
         }
     }

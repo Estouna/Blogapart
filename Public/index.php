@@ -1,7 +1,7 @@
 <?php
 
 use App\Autoloader;
-use App\Core\Accueil;
+use App\Core\Main;
 
 // Temps chargement en ms
 define('DEBUG_TIME', microtime(true));
@@ -16,7 +16,7 @@ Autoloader::register();
 
 
 // On instancie Main
-$app = new Accueil();
+$app = new Main();
 
 // On démarre l'application
 $app->start();
