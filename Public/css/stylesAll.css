@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {font-size: calc(12px + 0.15vw);}
+
+.text-center {text-align: center;}
+
+/*
+    ------------------------------------------------------ FLEXBOX ------------------------------------------------------
+*/
+.flex {display: flex;}
+.justify-content-center {justify-content: center;}
+.align-items-center {align-items: center;}
+
+.centerAll {
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*
+    ------------------------------------------------------ FONT-SIZE ------------------------------------------------------
+*/
+.ft-resp {font-size: calc(12px + 0.15vw);}
+.h1 {font-size: calc(25px + 0.35vw);}
+.h2 {font-size: calc(21px + 0.15vw);}
+.h3 {font-size: calc(17px + 0.15vw);}
+.h4 {font-size: calc(13px + 0.15vw);}
+
+/*
+    ------------------------------------------------------ MARGIN ------------------------------------------------------
+*/
+/*
+    ------- MARGIN -------
+*/
+.m-0 {margin:0;}
+/*320*600 = ~3.46px / 1920*1080 = ~5.86px, 4K = ~8.75px*/
+.m-1 {margin: calc(3px + 0.15vw);}
+/*320*600 = ~6.46px / 1920*1080 = ~8.86px, 4K = ~11.75px*/
+.m-2 {margin: calc(6px + 0.15vw);}
+/*320*600 = ~9.46px / 1920*1080 = ~11.86px, 4K = ~14.75px*/
+.m-3 {margin: calc(9px + 0.15vw);}
+/*320*600 = ~12.46px / 1920*1080 = ~14.86px, 4K = ~17.75px*/
+.m-4 {margin: calc(12px + 0.15vw);}
+/*320*600 = ~15.46px / 1920*1080 = ~17.86px, 4K = ~21.75px*/
+.m-5 {margin: calc(15px + 0.15vw);}
+/*320*600 = ~26.4px / 1920*1080 = ~58.4px / 4K = ~96.8px*/
+.m-6 {margin: calc(20px + 2vw);}
+/*320*600 = ~27.35px / 1920*1080 = ~64.15px / 4K = ~108.31px*/
+.m-7 {margin: calc(20px + 2.3vw);}
+/*320*600 = ~28.31px / 1920*1080 = ~69.91px / 4K = ~119.83px*/
+.m-8 {margin: calc(20px + 2.6vw);}
+/*320*600 = ~29.26px / 1920*1080 = ~75.66px / 4K = ~131.23px*/
+.m-9 {margin: calc(20px + 2.9vw);}
+/*320*600 = ~30.23px / 1920*1080 = ~81.43px / 4K = ~142.867px*/
+.m-10 {margin: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-TOP -------
+*/
+.mt-0 {margin-top:0;}
+.mt-1 {margin-top: calc(3px + 0.15vw);}
+.mt-2 {margin-top: calc(6px + 0.15vw);}
+.mt-3 {margin-top: calc(9px + 0.15vw);}
+.mt-4 {margin-top: calc(12px + 0.15vw);}
+.mt-5 {margin-top: calc(15px + 0.15vw);}
+.mt-6 {margin-top: calc(20px + 2vw);}
+.mt-7 {margin-top: calc(20px + 2.3vw);}
+.mt-8 {margin-top: calc(20px + 2.6vw);}
+.mt-9 {margin-top: calc(20px + 2.9vw);}
+.mt-10 {margin-top: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-BOTTOM -------
+*/
+.mb-0 {margin-bottom:0;}
+.mb-1 {margin-bottom: calc(3px + 0.15vw);}
+.mb-2 {margin-bottom: calc(6px + 0.15vw);}
+.mb-3 {margin-bottom: calc(9px + 0.15vw);}
+.mb-4 {margin-bottom: calc(12px + 0.15vw);}
+.mb-5 {margin-bottom: calc(15px + 0.15vw);}
+.mb-6 {margin-bottom: calc(20px + 2vw);}
+.mb-7 {margin-bottom: calc(20px + 2.3vw);}
+.mb-8 {margin-bottom: calc(20px + 2.6vw);}
+.mb-9 {margin-bottom: calc(20px + 2.9vw);}
+.mb-10 {margin-bottom: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-RIGHT -------
+*/
+.mr-0 {margin-right:0;}
+.mr-1 {margin-right: calc(3px + 0.15vw);}
+.mr-2 {margin-right: calc(6px + 0.15vw);}
+.mr-3 {margin-right: calc(9px + 0.15vw);}
+.mr-4 {margin-right: calc(12px + 0.15vw);}
+.mr-5 {margin-right: calc(15px + 0.15vw);}
+.mr-6 {margin-right: calc(20px + 2vw);}
+.mr-7 {margin-right: calc(20px + 2.3vw);}
+.mr-8 {margin-right: calc(20px + 2.6vw);}
+.mr-9 {margin-right: calc(20px + 2.9vw);}
+.mr-10 {margin-right: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-LEFT -------
+*/
+.ml-0 {margin-left:0;}
+.ml-1 {margin-left: calc(3px + 0.15vw);}
+.ml-2 {margin-left: calc(6px + 0.15vw);}
+.ml-3 {margin-left: calc(9px + 0.15vw);}
+.ml-4 {margin-left: calc(12px + 0.15vw);}
+.ml-5 {margin-left: calc(15px + 0.15vw);}
+.ml-6 {margin-left: calc(20px + 2vw);}
+.ml-7 {margin-left: calc(20px + 2.3vw);}
+.ml-8 {margin-left: calc(20px + 2.6vw);}
+.ml-9 {margin-left: calc(20px + 2.9vw);}
+.ml-10 {margin-left: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-X -------
+*/
+.mx-0 {margin-right:0; margin-left:0;}
+.mx-1 {margin-right: calc(3px + 0.15vw); margin-left: calc(3px + 0.15vw);}
+.mx-2 {margin-right: calc(6px + 0.15vw); margin-left: calc(6px + 0.15vw);}
+.mx-3 {margin-right: calc(9px + 0.15vw); margin-left: calc(9px + 0.15vw);}
+.mx-4 {margin-right: calc(12px + 0.15vw); margin-left: calc(12px + 0.15vw);}
+.mx-5 {margin-right: calc(15px + 0.15vw); margin-left: calc(15px + 0.15vw);}
+.mx-6 {margin-right: calc(20px + 2vw); margin-left: calc(20px + 2vw);}
+.mx-7 {margin-right: calc(20px + 2.3vw); margin-left: calc(20px + 2.3vw);}
+.mx-8 {margin-right: calc(20px + 2.6vw); margin-left: calc(20px + 2.6vw);}
+.mx-9 {margin-right: calc(20px + 2.9vw); margin-left: calc(20px + 2.9vw);}
+.mx-10 {margin-right: calc(20px + 3.2vw); margin-left: calc(20px + 3.2vw);}
+/*
+    ------- MARGIN-Y -------
+*/
+.my-0 {margin-top:0; margin-bottom:0;}
+.my-1 {margin-top: calc(3px + 0.15vw); margin-bottom: calc(3px + 0.15vw);}
+.my-2 {margin-top: calc(6px + 0.15vw); margin-bottom: calc(6px + 0.15vw);}
+.my-3 {margin-top: calc(9px + 0.15vw); margin-bottom: calc(9px + 0.15vw);}
+.my-4 {margin-top: calc(12px + 0.15vw); margin-bottom: calc(12px + 0.15vw);}
+.my-5 {margin-top: calc(15px + 0.15vw); margin-bottom: calc(15px + 0.15vw);}
+.my-6 {margin-top: calc(20px + 2vw); margin-bottom: calc(20px + 2vw);}
+.my-7 {margin-top: calc(20px + 2.3vw); margin-bottom: calc(20px + 2.3vw);}
+.my-8 {margin-top: calc(20px + 2.6vw); margin-bottom: calc(20px + 2.6vw);}
+.my-9 {margin-top: calc(20px + 2.9vw); margin-bottom: calc(20px + 2.9vw);}
+.my-10 {margin-top: calc(20px + 3.2vw); margin-bottom: calc(20px + 3.2vw);}
+
+/*
+    ------------------------------------------------------ PADDING ------------------------------------------------------
+*/
+/*
+    ------- PADDING -------
+*/
+.p-0 {padding:0;}
+/*320*600 = ~3.46px / 1920*1080 = ~5.86px, 4K = ~8.75px*/
+.p-1 {padding: calc(3px + 0.15vw);}
+/*320*600 = ~6.46px / 1920*1080 = ~8.86px, 4K = ~11.75px*/
+.p-2 {padding: calc(6px + 0.15vw);}
+/*320*600 = ~9.46px / 1920*1080 = ~11.86px, 4K = ~14.75px*/
+.p-3 {padding: calc(9px + 0.15vw);}
+/*320*600 = ~12.46px / 1920*1080 = ~14.86px, 4K = ~17.75px*/
+.p-4 {padding: calc(12px + 0.15vw);}
+/*320*600 = ~15.46px / 1920*1080 = ~17.86px, 4K = ~21.75px*/
+.p-5 {padding: calc(15px + 0.15vw);}
+/*320*600 = ~26.4px / 1920*1080 = ~58.4px / 4K = ~96.8px*/
+.p-6 {padding: calc(20px + 2vw);}
+/*320*600 = ~27.35px / 1920*1080 = ~64.15px / 4K = ~108.31px*/
+.p-7 {padding: calc(20px + 2.3vw);}
+/*320*600 = ~28.31px / 1920*1080 = ~69.91px / 4K = ~119.83px*/
+.p-8 {padding: calc(20px + 2.6vw);}
+/*320*600 = ~29.26px / 1920*1080 = ~75.66px / 4K = ~131.23px*/
+.p-9 {padding: calc(20px + 2.9vw);}
+/*320*600 = ~30.23px / 1920*1080 = ~81.43px / 4K = ~142.867px*/
+.p-10 {padding: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-TOP -------
+*/
+.pt-0 {padding-top:0;}
+.pt-1 {padding-top: calc(3px + 0.15vw);}
+.pt-2 {padding-top: calc(6px + 0.15vw);}
+.pt-3 {padding-top: calc(9px + 0.15vw);}
+.pt-4 {padding-top: calc(12px + 0.15vw);}
+.pt-5 {padding-top: calc(15px + 0.15vw);}
+.pt-6 {padding-top: calc(20px + 2vw);}
+.pt-7 {padding-top: calc(20px + 2.3vw);}
+.pt-8 {padding-top: calc(20px + 2.6vw);}
+.pt-9 {padding-top: calc(20px + 2.9vw);}
+.pt-10 {padding-top: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-BOTTOM -------
+*/
+.pb-0 {padding-bottom:0;}
+.pb-1 {padding-bottom: calc(3px + 0.15vw);}
+.pb-2 {padding-bottom: calc(6px + 0.15vw);}
+.pb-3 {padding-bottom: calc(9px + 0.15vw);}
+.pb-4 {padding-bottom: calc(12px + 0.15vw);}
+.pb-5 {padding-bottom: calc(15px + 0.15vw);}
+.pb-6 {padding-bottom: calc(20px + 2vw);}
+.pb-7 {padding-bottom: calc(20px + 2.3vw);}
+.pb-8 {padding-bottom: calc(20px + 2.6vw);}
+.pb-9 {padding-bottom: calc(20px + 2.9vw);}
+.pb-10 {padding-bottom: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-RIGHT -------
+*/
+.pr-0 {padding-right:0;}
+.pr-1 {padding-right: calc(3px + 0.15vw);}
+.pr-2 {padding-right: calc(6px + 0.15vw);}
+.pr-3 {padding-right: calc(9px + 0.15vw);}
+.pr-4 {padding-right: calc(12px + 0.15vw);}
+.pr-5 {padding-right: calc(15px + 0.15vw);}
+.pr-6 {padding-right: calc(20px + 2vw);}
+.pr-7 {padding-right: calc(20px + 2.3vw);}
+.pr-8 {padding-right: calc(20px + 2.6vw);}
+.pr-9 {padding-right: calc(20px + 2.9vw);}
+.pr-10 {padding-right: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-LEFT -------
+*/
+.pl-0 {padding-left:0;}
+.pl-1 {padding-left: calc(3px + 0.15vw);}
+.pl-2 {padding-left: calc(6px + 0.15vw);}
+.pl-3 {padding-left: calc(9px + 0.15vw);}
+.pl-4 {padding-left: calc(12px + 0.15vw);}
+.pl-5 {padding-left: calc(15px + 0.15vw);}
+.pl-6 {padding-left: calc(20px + 2vw);}
+.pl-7 {padding-left: calc(20px + 2.3vw);}
+.pl-8 {padding-left: calc(20px + 2.6vw);}
+.pl-9 {padding-left: calc(20px + 2.9vw);}
+.pl-10 {padding-left: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-X -------
+*/
+.px-0 {padding-right:0; padding-left:0;}
+.px-1 {padding-right: calc(3px + 0.15vw); padding-left: calc(3px + 0.15vw);}
+.px-2 {padding-right: calc(6px + 0.15vw); padding-left: calc(6px + 0.15vw);}
+.px-3 {padding-right: calc(9px + 0.15vw); padding-left: calc(9px + 0.15vw);}
+.px-4 {padding-right: calc(12px + 0.15vw); padding-left: calc(12px + 0.15vw);}
+.px-5 {padding-right: calc(15px + 0.15vw); padding-left: calc(15px + 0.15vw);}
+.px-6 {padding-right: calc(20px + 2vw); padding-left: calc(20px + 2vw);}
+.px-7 {padding-right: calc(20px + 2.3vw); padding-left: calc(20px + 2.3vw);}
+.px-8 {padding-right: calc(20px + 2.6vw); padding-left: calc(20px + 2.6vw);}
+.px-9 {padding-right: calc(20px + 2.9vw); padding-left: calc(20px + 2.9vw);}
+.px-10 {padding-right: calc(20px + 3.2vw); padding-left: calc(20px + 3.2vw);}
+/*
+    ------- PADDING-Y -------
+*/
+.py-0 {padding-top:0; padding-bottom:0;}
+.py-1 {padding-top: calc(3px + 0.15vw); padding-bottom: calc(3px + 0.15vw);}
+.py-2 {padding-top: calc(6px + 0.15vw); padding-bottom: calc(6px + 0.15vw);}
+.py-3 {padding-top: calc(9px + 0.15vw); padding-bottom: calc(9px + 0.15vw);}
+.py-4 {padding-top: calc(12px + 0.15vw); padding-bottom: calc(12px + 0.15vw);}
+.py-5 {padding-top: calc(15px + 0.15vw); padding-bottom: calc(15px + 0.15vw);}
+.py-6 {padding-top: calc(20px + 2vw); padding-bottom: calc(20px + 2vw);}
+.py-7 {padding-top: calc(20px + 2.3vw); padding-bottom: calc(20px + 2.3vw);}
+.py-8 {padding-top: calc(20px + 2.6vw); padding-bottom: calc(20px + 2.6vw);}
+.py-9 {padding-top: calc(20px + 2.9vw); padding-bottom: calc(20px + 2.9vw);}
+.py-10 {padding-top: calc(20px + 3.2vw); padding-bottom: calc(20px + 3.2vw);}
