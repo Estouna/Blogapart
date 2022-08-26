@@ -3,9 +3,6 @@
 use App\Autoloader;
 use App\Core\Main;
 
-// Temps chargement en ms
-define('DEBUG_TIME', microtime(true));
-
 // Défini la constante contenant le dossier racine du projet
 define('ROOT', dirname(__DIR__));
 

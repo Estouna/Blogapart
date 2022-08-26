@@ -1,24 +1,67 @@
-* {
+*, ::before, ::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {font-size: calc(12px + 0.15vw);}
+html {scroll-behavior: smooth;}
+body, input, button {font-size: calc(14px + 0.15vw);}
+ul {list-style-type: none;}
+h1, h2, h3, h4, h5, h6 {font-family: var(--font-poppLight);}
+p, a, button, input {font-family: var(--font-roboLight);}
+
+a, .unselectable {
+    text-decoration: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: 0.5s;
+}
 
 .text-center {text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+
+.input-title {
+    width: calc(240px + 20vw);
+    height: calc(30px + 0.8vw);
+}
+
+/*
+    ------------------------------------------------------ COLORS ------------------------------------------------------
+*/
+:root {
+    /* --------------- TEXT COLOR ----------------- */
+    --text-black: rgb(0, 0, 0);
+    --text-white: rgb(255, 255, 255);
+    --text-grey: rgb(121, 121, 121);
+    --text-green1: rgb(0, 197, 158);
+    --text-green2: rgb(8, 248, 200);
+    --text-red: rgb(255, 95, 95);
+    --text-blue: rgb(111, 162, 255);
+    --text-yellow: rgb(255, 202, 58);
+
+    /* --------------- COLORS ----------------- */
+    --black: rgb(0, 0, 0);
+    --darkGrey: rgb(14, 14, 14);
+    --white: rgb(255, 255, 255);
+    --green1: rgb(0, 197, 158);
+    --green2: rgb(8, 248, 200);
+    --red: rgb(255, 95, 95);
+    --blue: rgb(111, 162, 255);
+    --yellow: rgb(255, 202, 58);
+    --violet: rgb(189, 31, 252);
+
+    /* --------------- COLORS ----------------- */
+    --font-poppLight: 'Poppins', arial, sans-serif;
+    --font-roboLight: 'Roboto', arial, sans-serif;
+}
 
 /*
     ------------------------------------------------------ FLEXBOX ------------------------------------------------------
 */
 .flex {display: flex;}
-.justify-content-center {justify-content: center;}
-.align-items-center {align-items: center;}
-
-.centerAll {
-    justify-content: center;
-    align-items: center;
-}
 
 .row {
     display: flex;
@@ -30,15 +73,35 @@ body {font-size: calc(12px + 0.15vw);}
     flex-direction: column;
 }
 
+.centerAll {
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+    ------------ JUSTIFY-CONTENT ------------ 
+*/
+.justify-content-start {justify-content: flex-start;}
+.justify-content-center {justify-content: center;}
+.justify-content-end {justify-content: flex-end;}
+.justify-content-between {justify-content: space-between;}
+.justify-content-around {justify-content: space-around;}
+.justify-content-evenly {justify-content: space-evenly;}
+/*
+    ------------ ALIGN-ITEMS ------------ 
+*/
+.align-items-start {align-items: flex-start;}
+.align-items-center {align-items: center;}
+.align-items-end {align-items: flex-end;}
 
 /*
     ------------------------------------------------------ FONT-SIZE ------------------------------------------------------
 */
-.ft-resp {font-size: calc(12px + 0.15vw);}
-.h1 {font-size: calc(25px + 0.35vw);}
-.h2 {font-size: calc(21px + 0.15vw);}
-.h3 {font-size: calc(17px + 0.15vw);}
-.h4 {font-size: calc(13px + 0.15vw);}
+.ft-2 {font-size: calc(14px + 0.15vw);}
+.h1 {font-size: calc(30px + 0.35vw);}
+.h2 {font-size: calc(23px + 0.15vw);}
+.h3 {font-size: calc(19px + 0.15vw);}
+.h4 {font-size: calc(16px + 0.15vw);}
 
 /*
     ------------------------------------------------------ MARGIN ------------------------------------------------------
@@ -263,3 +326,75 @@ body {font-size: calc(12px + 0.15vw);}
 .py-8 {padding-top: calc(20px + 2.6vw); padding-bottom: calc(20px + 2.6vw);}
 .py-9 {padding-top: calc(20px + 2.9vw); padding-bottom: calc(20px + 2.9vw);}
 .py-10 {padding-top: calc(20px + 3.2vw); padding-bottom: calc(20px + 3.2vw);}
+
+/*
+    ------------------------------------------------------ WIDTH/HEIGHT ------------------------------------------------------
+*/
+/*
+    ------- WIDTH -------
+*/
+.w-5{width: 5%;}
+.w-10{width: 10%;}
+.w-15{width: 15%;}
+.w-20{width: 20%;}
+.w-25{width: 25%;}
+.w-30{width: 30%;}
+.w-35{width: 35%;}
+.w-40{width: 40%;}
+.w-45{width: 45%;}
+.w-50{width: 50%;}
+.w-55{width: 55%;}
+.w-60{width: 60%;}
+.w-65{width: 65%;}
+.w-70{width: 70%;}
+.w-75{width: 75%;}
+.w-80{width: 80%;}
+.w-85{width: 85%;}
+.w-90{width: 90%;}
+.w-95{width: 95%;}
+.w-100{width: 100%;}
+
+/*
+    ------- HEIGHT -------
+*/
+.h-5{height: 5%;}
+.h-10{height: 10%;}
+.h-15{height: 15%;}
+.h-20{height: 20%;}
+.h-25{height: 25%;}
+.h-30{height: 30%;}
+.h-35{height: 35%;}
+.h-40{height: 40%;}
+.h-45{height: 45%;}
+.h-50{height: 50%;}
+.h-55{height: 55%;}
+.h-60{height: 60%;}
+.h-65{height: 65%;}
+.h-70{height: 70%;}
+.h-75{height: 75%;}
+.h-80{height: 80%;}
+.h-85{height: 85%;}
+.h-90{height: 90%;}
+.h-95{height: 95%;}
+.h-100{height: 100%;}
+
+.vh-5{height: 5vh;}
+.vh-10{height: 10vh;}
+.vh-15{height: 15vh;}
+.vh-20{height: 20vh;}
+.vh-25{height: 25vh;}
+.vh-30{height: 30vh;}
+.vh-35{height: 35vh;}
+.vh-40{height: 40vh;}
+.vh-45{height: 45vh;}
+.vh-50{height: 50vh;}
+.vh-55{height: 55vh;}
+.vh-60{height: 60vh;}
+.vh-65{height: 65vh;}
+.vh-70{height: 70vh;}
+.vh-75{height: 75vh;}
+.vh-80{height: 80vh;}
+.vh-85{height: 85vh;}
+.vh-90{height: 90vh;}
+.vh-95{height: 95vh;}
+.vh-100{height: 100vh;}

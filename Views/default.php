@@ -2,11 +2,11 @@
 include_once 'includes/header.php';
 ?>
 
-<main class="container flex centerAll">
+<main class="container column align-items-center vh-100">
 
     <!-- 
         -------------------------------------------------------- MESSAGES -------------------------------------------------------- 
-        -->
+    -->
     <?php if (!empty($_SESSION['erreur'])) : ?>
         <div class="alert">
             <?php
@@ -23,9 +23,10 @@ include_once 'includes/header.php';
             ?>
         </div>
     <?php endif; ?>
-
+    
+    <!-- Le buffer transféré par le contrôleur principal (ob_start(), ob_get_clean()) -->
     <?= $content ?>
 
-    </main>
+</main>
 
 <?php include_once 'includes/footer.php'; ?>

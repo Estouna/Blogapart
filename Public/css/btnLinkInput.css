@@ -1,0 +1,28 @@
+a, button, label, h1, h2, h3, h4, h5, h6, .input-title,.succes {
+    color: var(--text-green2);
+    letter-spacing: calc(1px + 0.15vw);
+}
+
+.alert {
+    color: var(--text-red);
+}
+
+button, .input-title {
+    padding: calc(3px + 0.15vw) calc(8px + 0.15vw) calc(3px + 0.15vw) calc(8px + 0.15vw);
+    background-color: var(--darkGrey);
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid var(--green2);
+    transition: 0.5s; 
+}
+
+a:hover, a:focus{
+    color: var(--text-green1);
+}
+
+
+button:active, .input-title:active {
+    outline: none;
+    color: var(--text-green1); 
+    border: 1px solid var(--green1); 
+}
