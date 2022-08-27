@@ -18,7 +18,7 @@ class AdminController extends Controller
     private function isAdmin()
     {
         // Vérifie si l'utilisateur est connecté et que son id_droits est celle de l'admin
-        if (isset($_SESSION['user']['id_droits']) && in_array('1337', $_SESSION['user']['id_droits'])) {
+        if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] === 1337) {
             // Si admin
             return true;
         } else {

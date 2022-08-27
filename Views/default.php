@@ -2,13 +2,11 @@
 include_once 'includes/header.php';
 ?>
 
-<main class="container column align-items-center vh-100">
-
     <!-- 
         -------------------------------------------------------- MESSAGES -------------------------------------------------------- 
     -->
     <?php if (!empty($_SESSION['erreur'])) : ?>
-        <div class="alert">
+        <div class="alert mt-2">
             <?php
             echo $_SESSION['erreur'];
             unset($_SESSION['erreur']);
@@ -16,7 +14,7 @@ include_once 'includes/header.php';
         </div>
     <?php endif; ?>
     <?php if (!empty($_SESSION['success'])) : ?>
-        <div class="succes">
+        <div class="succes mt-2">
             <?php
             echo $_SESSION['success'];
             unset($_SESSION['success']);
@@ -27,6 +25,6 @@ include_once 'includes/header.php';
     <!-- Le buffer transféré par le contrôleur principal (ob_start(), ob_get_clean()) -->
     <?= $content ?>
 
-</main>
+
 
 <?php include_once 'includes/footer.php'; ?>

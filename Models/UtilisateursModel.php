@@ -155,7 +155,12 @@ class UtilisateursModel extends Model
      */ 
     public function getId_droits()
     {
-        return $this->id_droits;
+        // Récupère les rôles qui ont été donnés
+        $Id_droits = $this->Id_droits;
+        // push qui permet d'avoir par défaut ROLE_USER même s'il y a Null dans la bdd
+        $Id_droits[] = '1';
+        // pour supprimer les éventuels doublons de la bdd (2x 'ROLE_USER')
+        return array_unique($Id_droits);
     }
 
     /**

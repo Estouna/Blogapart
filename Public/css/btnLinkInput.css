@@ -1,10 +1,17 @@
-a, button, label, h1, h2, h3, h4, h5, h6, .input-title,.succes {
+a, select, button, label, h1, h2, h3, h4, h5, h6, .input-title,.succes, .alert {
+    letter-spacing: calc(1px + 0.13vw);
+}
+
+a, select, .input-title,.succes {
     color: var(--text-green2);
-    letter-spacing: calc(1px + 0.15vw);
 }
 
 .alert {
     color: var(--text-red);
+}
+
+button{
+    color: var(--white);
 }
 
 button, .input-title {

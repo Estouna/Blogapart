@@ -8,17 +8,86 @@ use App\Models\UtilisateursModel;
 
 class UtilisateursController extends Controller
 {
+
     /* 
-        -------------------------------------------------------- PAGE CONNEXION --------------------------------------------------------
+    -------------------------------------------------------- PAGE CONNEXION --------------------------------------------------------
     */
+    /**
+     * Connexion des utilisateurs
+     * @return void
+     */
     public function connexion()
     {
-        $this->render('utilisateurs/connexion', []);
+        if (isset($_POST['validateLog'])) {
+
+            if (Form::validate($_POST, ['email', 'password'])) {
+                // Récupère l'utilisateur par son email
+                $userModel = new UtilisateursModel;
+                $userArray = $userModel->findOneByEmail(htmlspecialchars($_POST['email']));
+
+                // Si l'utilisateur n'existe pas
+                if (!$userArray) {
+                    // http_response_code(404);
+                    $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe est incorrect';
+                    header('Location: /utilisateurs/connexion');
+                    exit;
+                }
+
+                // S'il existe hydrate l'objet
+                $user = $userModel->hydrate($userArray);
+
+                // Vérifie le mot de passe
+                if (password_verify($_POST['password'], $user->getPassword())) {
+                    // Si bon mot de passe, création la session
+                    $user->setSession();
+
+                    // Si admin redirige vers admin
+                    if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] === 1337) {
+                        header('Location: /admin');
+                        exit;
+                    }
+
+                    // Redirige vers la page profil
+                    header('Location: /utilisateurs/profil');
+                    exit;
+                } else {
+                    // Si mauvais mot de passe
+                    $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe est incorrect';
+                    header('Location: /utilisateurs/connexion');
+                    exit;
+                }
+            } else {
+                // Message de session et rechargement de la page
+                $_SESSION['erreur'] = !empty($_POST) ? 'Tous les champs doivent être remplis' : '';
+                header('Location: /utilisateurs/connexion');
+                exit;
+            }
+        }
+
+
+        $form = new Form;
+
+        $form->debutForm('post', '#', ['class' => 'column'])
+            ->ajoutLabelFor('email', 'E-mail :')
+            ->ajoutInput('email', 'email', ['class' => 'my-2 input-title', 'id' => 'email', 'required' => 'true'])
+            ->ajoutLabelFor('password', 'Mot de passe :', ['class' => 'mt-5'])
+            ->ajoutInput('password', 'password', ['class' => 'my-2 input-title', 'id' => 'pass', 'required' => 'true'])
+            ->debutDiv(['class' => 'text-center mt-3'])
+            ->ajoutBouton('Me connecter', ['type' => 'submit', 'name' => 'validateLog', 'class' => 'my-5'])
+            ->finDiv()
+            ->finForm();
+
+        // Envoi le formulaire à la vue
+        $this->render('utilisateurs/connexion', ['connexionForm' => $form->create()]);
     }
 
     /* 
         -------------------------------------------------------- PAGE INSCRIPTION --------------------------------------------------------
     */
+    /**
+     * Inscription des utilisateurs
+     * @return void
+     */
     public function inscription()
     {
 
@@ -30,9 +99,9 @@ class UtilisateursController extends Controller
 
                 $login = Form::valid_donnees($_POST['login']);
                 $email = htmlspecialchars($_POST['email']);
-                
+
                 $loginlength = strlen($login);
-                if ($loginlength > 0 && $loginlength <= 20){
+                if ($loginlength > 0 && $loginlength <= 20) {
 
                     $verif_login = $user->checkIfLoginAlreadyExist($login);
                     if ($verif_login) {
@@ -40,7 +109,7 @@ class UtilisateursController extends Controller
                         header('Location: /utilisateurs/inscription');
                         exit;
                     }
-                    
+
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
                         $verif_email = $user->findOneByEmail($email);
@@ -86,16 +155,31 @@ class UtilisateursController extends Controller
         $form->debutForm('post', '#', ['class' => 'column'])
             ->ajoutLabelFor('login', 'Login :')
             ->ajoutInput('text', 'login', ['class' => 'my-2 input-title', 'id' => 'login', 'required' => 'true'])
-            ->ajoutLabelFor('email', 'E-mail :', ['class' => 'text-primary'])
+            ->ajoutLabelFor('email', 'E-mail :', ['class' => 'mt-5'])
             ->ajoutInput('email', 'email', ['class' => 'my-2 input-title', 'id' => 'email', 'required' => 'true'])
-            ->ajoutLabelFor('pass', 'Mot de passe :')
+            ->ajoutLabelFor('pass', 'Mot de passe :', ['class' => 'mt-5'])
             ->ajoutInput('password', 'password', ['class' => 'my-2 input-title', 'id' => 'pass', 'required' => 'true'])
             ->debutDiv(['class' => 'text-center mt-3'])
-            ->ajoutBouton('M\'inscrire', ['type' => 'submit', 'name' => 'validateReg', 'class' => 'my-4'])
+            ->ajoutBouton('M\'inscrire', ['type' => 'submit', 'name' => 'validateReg', 'class' => 'my-5'])
             ->finDiv()
             ->finForm();
 
         $this->render('utilisateurs/inscription', ['inscriptionForm' => $form->create()]);
+    }
+
+    /* 
+        -------------------------------------------------------- DECONNEXION --------------------------------------------------------
+    */
+
+    /**
+     * Déconnexion de l'utilisateur
+     * @return exit
+     */
+    public function deconnexion()
+    {
+        unset($_SESSION['user']);
+        header('Location: /utilisateurs/connexion');
+        exit;
     }
 
     /* 
@@ -106,7 +190,6 @@ class UtilisateursController extends Controller
         if ($this->isUser()) {
 
             $this->render('utilisateurs/profil', []);
-
         }
     }
 
