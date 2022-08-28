@@ -3,7 +3,7 @@
         -------------------------------------------------------- MESSAGES -------------------------------------------------------- 
     -->
     <?php if (!empty($_SESSION['erreur'])) : ?>
-        <div class="alert">
+        <div class="alert my-2">
             <?php
             echo $_SESSION['erreur'];
             unset($_SESSION['erreur']);
@@ -11,7 +11,7 @@
         </div>
     <?php endif; ?>
     <?php if (!empty($_SESSION['success'])) : ?>
-        <div class="succes">
+        <div class="succes my-2">
             <?php
             echo $_SESSION['success'];
             unset($_SESSION['success']);

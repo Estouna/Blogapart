@@ -38,7 +38,7 @@ class UtilisateursModel extends Model
     }
 
     /* 
-       ----------  VERIFIER SI LE LOGIN EXISTE DEJA DANS LA BDD ----------
+       ----------  TROUVER UN UTILISATEUR PAR SON LOGIN OU VERIFIER SI LE LOGIN EXISTE DEJA DANS LA BDD ----------
     */
     /**
      * Vérifie si le login existe déjà dans la bdd
@@ -47,7 +47,7 @@ class UtilisateursModel extends Model
      */
     public function checkIfLoginAlreadyExist(string $login)
     {
-        return $this->requete("SELECT login FROM {$this->table} WHERE login = ?", [$login])->fetch();
+        return $this->requete("SELECT * FROM {$this->table} WHERE login = ?", [$login])->fetch();
     }
 
     /* 

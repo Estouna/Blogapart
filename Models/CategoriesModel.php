@@ -13,6 +13,14 @@ class CategoriesModel extends Model
     }
 
     /* 
+       ----------  TROUVER L'ID DE LA CATEGORIE PARENTE (pour articles) ----------
+    */
+    public function findId_cat(int $id)
+    {
+        return $this->requete("SELECT id FROM {$this->table} WHERE id = $id")->fetch();
+    }
+
+    /* 
         -------------------------------------------------------- GETTERS/SETTERS --------------------------------------------------------
     */
     /**

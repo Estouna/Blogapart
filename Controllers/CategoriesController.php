@@ -8,7 +8,19 @@ class CategoriesController extends Controller
 {
     public function index()
     {
+        $categoriesModel = new CategoriesModel;
 
-        $this->render('categories/index', []);
+        $categories = $categoriesModel->findAll();
+
+        $this->render('categories/index', compact('categories'));
+    }
+
+    public function categorie(int $id)
+    {
+        $categoriesModel = new CategoriesModel;
+
+        $categorie = $categoriesModel->findBy(['id' => $id]);
+
+        $this->render('categories/categorie', compact('categorie'));
     }
 }

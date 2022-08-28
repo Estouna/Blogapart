@@ -33,3 +33,32 @@ button:active, .input-title:active {
     color: var(--text-green1); 
     border: 1px solid var(--green1); 
 }
+
+/*
+    ------- MENU SELECT -------
+*/
+.select-style2 {
+    /* overflow: hidden; */
+    position: relative;
+    border: none;
+}
+
+.select-style2 select{
+    font-family: var(--font-roboLight);
+    background-color: var(--black);
+    border: 1px solid var(--green2);
+    border-radius: 5px;
+    width: 140%;
+    box-shadow: none;
+    transition: 0.2s;
+}
+
+.select-style2 select:hover {
+    color: var(--text-green1);
+}
+
+.select-style2 select:focus {
+    color: var(--text-green2);
+    outline: none;
+    border: none;
+}

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Form;
 use App\Models\UtilisateursModel;
+use App\Models\CategoriesModel;
 
 
 class UtilisateursController extends Controller
@@ -20,15 +21,14 @@ class UtilisateursController extends Controller
     {
         if (isset($_POST['validateLog'])) {
 
-            if (Form::validate($_POST, ['email', 'password'])) {
-                // Récupère l'utilisateur par son email
+            if (Form::validate($_POST, ['login', 'password'])) {
+                // Récupère l'utilisateur par son login
                 $userModel = new UtilisateursModel;
-                $userArray = $userModel->findOneByEmail(htmlspecialchars($_POST['email']));
+                $userArray = $userModel->checkIfLoginAlreadyExist(htmlspecialchars($_POST['login']));
 
                 // Si l'utilisateur n'existe pas
                 if (!$userArray) {
-                    // http_response_code(404);
-                    $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe est incorrect';
+                    $_SESSION['erreur'] = 'Le login et/ou le mot de passe est incorrect';
                     header('Location: /utilisateurs/connexion');
                     exit;
                 }
@@ -38,7 +38,7 @@ class UtilisateursController extends Controller
 
                 // Vérifie le mot de passe
                 if (password_verify($_POST['password'], $user->getPassword())) {
-                    // Si bon mot de passe, création la session
+                    // Si bon mot de passe, création de la session
                     $user->setSession();
 
                     // Si admin redirige vers admin
@@ -52,7 +52,7 @@ class UtilisateursController extends Controller
                     exit;
                 } else {
                     // Si mauvais mot de passe
-                    $_SESSION['erreur'] = 'L\'adresse email et/ou le mot de passe est incorrect';
+                    $_SESSION['erreur'] = 'Le login et/ou le mot de passe est incorrect';
                     header('Location: /utilisateurs/connexion');
                     exit;
                 }
@@ -68,8 +68,8 @@ class UtilisateursController extends Controller
         $form = new Form;
 
         $form->debutForm('post', '#', ['class' => 'column'])
-            ->ajoutLabelFor('email', 'E-mail :')
-            ->ajoutInput('email', 'email', ['class' => 'my-2 input-title', 'id' => 'email', 'required' => 'true'])
+            ->ajoutLabelFor('login', 'Login :')
+            ->ajoutInput('text', 'login', ['class' => 'my-2 input-title', 'id' => 'login', 'required' => 'true'])
             ->ajoutLabelFor('password', 'Mot de passe :', ['class' => 'mt-5'])
             ->ajoutInput('password', 'password', ['class' => 'my-2 input-title', 'id' => 'pass', 'required' => 'true'])
             ->debutDiv(['class' => 'text-center mt-3'])
@@ -93,7 +93,7 @@ class UtilisateursController extends Controller
 
         if (isset($_POST['validateReg'])) {
             // Vérifie si le formulaire est valide
-            if (Form::validate($_POST, ['login', 'email', 'password'])) {
+            if (Form::validate($_POST, ['login', 'email', 'password', 'password2'])) {
 
                 $user = new UtilisateursModel;
 
@@ -119,22 +119,25 @@ class UtilisateursController extends Controller
                             header('Location: /utilisateurs/inscription');
                             exit;
                         }
+                        if ($_POST['password'] == $_POST['password2']) {
+                            // Hash le mot de passe (ARGON2I à partir de PHP 7.2)
+                            $pass = password_hash($_POST['password'], PASSWORD_ARGON2I);
 
-                        // Hash le mot de passe (ARGON2I à partir de PHP 7.2)
-                        $pass = password_hash($_POST['password'], PASSWORD_ARGON2I);
+                            // Hydrate l'utilisateur
+                            $user->setLogin($login)
+                                ->setEmail($email)
+                                ->setPassword($pass)
+                                ->setId_droits(1);
+                            // Enregistre l'utilisateur dans la bdd
+                            $user->create();
 
-                        // Hydrate l'utilisateur
-                        $user->setLogin($login)
-                            ->setEmail($email)
-                            ->setPassword($pass)
-                            ->setId_droits(1);
-                        // Enregistre l'utilisateur dans la bdd
-                        $user->create();
-
-                        // On redirige avec un message
-                        $_SESSION['success'] = "Merci et bienvenue";
-                        header('Location: /');
-                        exit;
+                            // On redirige avec un message
+                            $_SESSION['success'] = "Merci et bienvenue";
+                            header('Location: /');
+                            exit;
+                        } else {
+                            $_SESSION['erreur'] = "Vos mots de passes ne correspondent pas";
+                        }
                     } else {
                         $_SESSION['erreur'] = "Votre adresse email n'est pas valide";
                     }
@@ -159,6 +162,8 @@ class UtilisateursController extends Controller
             ->ajoutInput('email', 'email', ['class' => 'my-2 input-title', 'id' => 'email', 'required' => 'true'])
             ->ajoutLabelFor('pass', 'Mot de passe :', ['class' => 'mt-5'])
             ->ajoutInput('password', 'password', ['class' => 'my-2 input-title', 'id' => 'pass', 'required' => 'true'])
+            ->ajoutLabelFor('pass2', 'Confirmation du mot de passe :', ['class' => 'mt-5'])
+            ->ajoutInput('password', 'password2', ['class' => 'my-2 input-title', 'id' => 'pass2', 'required' => 'true'])
             ->debutDiv(['class' => 'text-center mt-3'])
             ->ajoutBouton('M\'inscrire', ['type' => 'submit', 'name' => 'validateReg', 'class' => 'my-5'])
             ->finDiv()
@@ -189,7 +194,11 @@ class UtilisateursController extends Controller
     {
         if ($this->isUser()) {
 
-            $this->render('utilisateurs/profil', []);
+            $categoriesModel = new CategoriesModel;
+
+            $liste_categories = $categoriesModel->findAll();
+
+            $this->render('utilisateurs/profil', compact('liste_categories'));
         }
     }
 

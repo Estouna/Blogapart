@@ -1,3 +1,11 @@
+<?php
+
+use App\Models\CategoriesModel;
+
+$categoriesModel = new CategoriesModel;
+$nav_categories = $categoriesModel->findAll();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,6 +24,7 @@
 </head>
 
 <body>
+
     <header class="header flex justify-content-end align-items-center">
         <div class="ml-4 py-2">
             <a class="logo ft-2" href="/">BLOG<span class="spanLogo">A</span>PART</a>
@@ -26,11 +35,11 @@
                     <li class="nav-li mx-6 my-2">
                         <div class="select-style">
                             <select class="py-2" onChange="window.location=this.options[this.selectedIndex].value;">
-                                <option class="titleSelect">CATEGORIES</option>
-                                <option value="/categories">CATEGORIE 1</option>
-                                <option value="/categories">CATEGORIE 2</option>
-                                <option value="/categories">CATEGORIE 3</option>
-                                <option value="/categories">CATEGORIE 4</option>
+                                <option value="" class="titleSelect" selected>CATEGORIES</option>
+                                <?php foreach ($nav_categories as $cat) : ?>
+                                    <option value="/categories/categorie/<?= $cat->id ?>"><?= $cat->nom ?></option>
+                                <?php endforeach; ?>
+                                <option value="/categories">Tous</option>
                             </select>
                         </div>
                     </li>
@@ -59,5 +68,6 @@
             </div>
         </nav>
     </header>
+
 
     <main class="container column align-items-center h-100">
