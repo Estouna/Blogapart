@@ -43,22 +43,21 @@ button:active, .input-title:active {
     border: none;
 }
 
-.select-style2 select{
+.select-style2 {
     font-family: var(--font-roboLight);
     background-color: var(--black);
     border: 1px solid var(--green2);
     border-radius: 5px;
-    width: 140%;
+    width: calc(200px + 2vw);
     box-shadow: none;
     transition: 0.2s;
 }
 
-.select-style2 select:hover {
+.select-style2:hover {
     color: var(--text-green1);
 }
 
-.select-style2 select:focus {
+.select-style2:focus {
     color: var(--text-green2);
     outline: none;
-    border: none;
 }

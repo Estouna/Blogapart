@@ -18,6 +18,11 @@ class ArticlesModel extends Model
         $this->table = 'articles';
     }
 
+    public function findLastThreeArticles()
+    {
+        return $this->requete("SELECT * FROM {$this->table} ORDER BY date DESC LIMIT 0,3")->fetchAll();
+    }
+
     /* 
         -------------------------------------------------------- GETTERS/SETTERS --------------------------------------------------------
     */

@@ -1,26 +1,19 @@
-<h1 class="h1 m-6">Accueil</h1>
+<h1 class="h1 mt-6 mb-4">Accueil</h1>
 
-    <!-- 
-        -------------------------------------------------------- MESSAGES -------------------------------------------------------- 
-    -->
-    <?php if (!empty($_SESSION['erreur'])) : ?>
-        <div class="alert mt-2">
-            <?php
-            echo $_SESSION['erreur'];
-            unset($_SESSION['erreur']);
-            ?>
-        </div>
-    <?php endif; ?>
-    <?php if (!empty($_SESSION['success'])) : ?>
-        <div class="succes mt-2">
-            <?php
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-            ?>
-        </div>
-    <?php endif; ?>
+<div class="flex flex-wrap centerAll w-100 my-2">
+    <?php foreach ($trois_dernierArticles as $a) : ?>
+        <div class="column centerAll m-3">
+            <article class="bloc-article2">
+                <p class="text-article mt-3 mx-3 p-2 vh-40 ft-1"><?= $a->article ?></p>
 
-<a class="my-1" href="/articles">Articles</a>
-<a class="my-1" href="/utilisateurs/Profil">Profil</a>
-<a class="my-1" href="/articles/creer_article">Publier</a>
-<a class="my-1" href="/admin">Administration</a>
+                <p class="article-date p-3 ft-1">Date <?= $a->date ?></p>
+
+                <div class="row centerAll py-4">
+                    <a class="my-4" href="/articles/lire/<?= $a->id ?>">Lire l'article</a>
+                </div>
+            </article>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<a class="my-5" href="/articles">Tous les articles</a>

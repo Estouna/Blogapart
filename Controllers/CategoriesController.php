@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CategoriesModel;
+use App\Models\ArticlesModel;
 
 class CategoriesController extends Controller
 {
@@ -18,9 +19,11 @@ class CategoriesController extends Controller
     public function categorie(int $id)
     {
         $categoriesModel = new CategoriesModel;
-
         $categorie = $categoriesModel->findBy(['id' => $id]);
 
-        $this->render('categories/categorie', compact('categorie'));
+        $articlesModel = new ArticlesModel;
+        $articles = $articlesModel->findBy(['id_categorie => $id']);
+
+        $this->render('categories/categorie', compact('categorie', 'articles'));
     }
 }

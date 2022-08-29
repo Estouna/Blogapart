@@ -194,11 +194,7 @@ class UtilisateursController extends Controller
     {
         if ($this->isUser()) {
 
-            $categoriesModel = new CategoriesModel;
-
-            $liste_categories = $categoriesModel->findAll();
-
-            $this->render('utilisateurs/profil', compact('liste_categories'));
+            $this->render('utilisateurs/profil', []);
         }
     }
 

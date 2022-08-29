@@ -3,50 +3,33 @@
 namespace App\Controllers;
 
 use App\Models\ArticlesModel;
-use App\Core\Form;
-use App\Models\CategoriesModel;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
-
-        $this->render('articles/index', []);
+        $articlesModel = new ArticlesModel;
+        $articles = $articlesModel->findAll();
+        $this->render('articles/index', compact('articles'));
     }
 
     /* 
-        -------------------------------------------------------- PUBLIER UNE ARTICLE --------------------------------------------------------
+        -------------------------------------------------------- LIRE UN ARTICLE --------------------------------------------------------
     */
-    public function creer_article()
+    /**
+     * Affiche une annonce
+     * @param integer $id
+     * @return void
+     */
+    public function lire(int $id)
     {
-        // Vérifie si la session contient les informations d'un utilisateur
-        if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) {
-            
-            $categoriesModel = new CategoriesModel;
-            $categories = $categoriesModel->findAll();
-            
-            // Vérifie que les champs existent et ne sont pas vides
-            if (Form::validate($_POST, ['article'], ['articleCategorie'])) {
-                // Sécurise les données
-                $article = Form::valid_donnees($_POST['article']);
-                
+        // Instancie le modèle
+        $articlesModel = new ArticlesModel;
 
-                // On redirige avec un message
-                $_SESSION['success'] = "Votre article a été enregistrée";
-                header('Location: /utilisateurs/profil');
-                exit;
-            } else {
-                // Message de session
-                $_SESSION['erreur'] = !empty($_POST) ? 'Vous devez écrire votre article avant de valider' : '';
-            }
+        // Récupère une annonce par son id
+        $lire_article = $articlesModel->find($id);
 
-            // Envoi à la vue  
-        } else {
-            header('Location: /users/login');
-            exit;
-        }
-        $this->render('articles/creer_article', compact('categories'));
-    
-
+        // Envoi à la vue
+        $this->render('articles/lire', compact('lire_article'));
     }
 }

@@ -6,7 +6,7 @@
 .container{padding: 50px 0;}
 html {scroll-behavior: smooth;}
 body{height: 100vh; color: var(--white);}
-body, input, button {font-size: calc(14px + 0.15vw);}
+body, input, button, textarea, select {font-size: calc(14px + 0.15vw);}
 ul {list-style-type: none;}
 h1, h2, h3, h4, h5, h6 {font-family: var(--font-poppLight);}
 p, a, button, input {font-family: var(--font-roboLight);}
@@ -112,12 +112,6 @@ a, .unselectable {
     ------- MENU SELECT -------
 */
 .select-style {
-    /* overflow: hidden; */
-    position: relative;
-    border: none;
-}
-
-.select-style select {
     font-family: var(--font-roboLight);
     font-size: 14px;
     width: 120%;
@@ -131,11 +125,11 @@ a, .unselectable {
     display: none;
 }
 
-.select-style select:hover {
+.select-style:hover {
     color: var(--text-green1);
 }
 
-.select-style select:focus {
+.select-style:focus {
     color: var(--text-green2);
     outline: none;
     border: none;
@@ -157,7 +151,7 @@ a, .unselectable {
 
     /* --------------- COLORS ----------------- */
     --black: rgb(0, 0, 0);
-    --darkGrey: rgb(14, 14, 14);
+    --darkGrey: rgb(19, 19, 19);
     --white: rgb(255, 255, 255);
     --green1: rgb(0, 197, 158);
     --green2: rgb(8, 248, 200);
@@ -186,13 +180,15 @@ a, .unselectable {
     flex-direction: column;
 }
 
-.centerAll {
-    justify-content: center;
-    align-items: center;
-}
+/*
+    ------------ FLEX-WRAP ------------ 
+*/
+.flex-wrap {flex-wrap: wrap;}
+.flex-nowrap {flex-wrap: nowrap;}
+
 
 /*
-    ------------ JUSTIFY-CONTENT ------------ 
+------------ JUSTIFY-CONTENT ------------ 
 */
 .justify-content-start {justify-content: flex-start;}
 .justify-content-center {justify-content: center;}
@@ -201,21 +197,29 @@ a, .unselectable {
 .justify-content-around {justify-content: space-around;}
 .justify-content-evenly {justify-content: space-evenly;}
 /*
-    ------------ ALIGN-ITEMS ------------ 
+------------ ALIGN-ITEMS ------------ 
 */
 .align-items-start {align-items: flex-start;}
 .align-items-center {align-items: center;}
 .align-items-end {align-items: flex-end;}
 
+.centerAll {
+    justify-content: center;
+    align-items: center;
+}
+
 /*
     ------------------------------------------------------ FONT-SIZE ------------------------------------------------------
 */
 .ft-1 {font-size: calc(8px + 0.15vw);}
-.ft-2 {font-size: calc(14px + 0.15vw);}
-.h1 {font-size: calc(30px + 0.35vw);}
-.h2 {font-size: calc(23px + 0.15vw);}
-.h3 {font-size: calc(19px + 0.15vw);}
-.h4 {font-size: calc(16px + 0.15vw);}
+.ft-2 {font-size: calc(9px + 0.15vw);}
+.ft-3 {font-size: calc(10px + 0.15vw);}
+.ft-4 {font-size: calc(11px + 0.15vw);}
+.ft-5 {font-size: calc(14px + 0.15vw);}
+.h1 {font-size: calc(28px + 0.35vw);}
+.h2 {font-size: calc(21px + 0.15vw);}
+.h3 {font-size: calc(17px + 0.15vw);}
+.h4 {font-size: calc(14px + 0.15vw);}
 
 /*
     ------------------------------------------------------ MARGIN ------------------------------------------------------
@@ -541,7 +545,7 @@ a, .unselectable {
 /*
     ------- NAVBAR -------
 */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 925px) {
     .nav-ul {
         position: fixed;
         background-color: var(--black);
@@ -586,7 +590,7 @@ a, .unselectable {
         box-shadow: 0 0 2px var(--green2), 0 0 6px var(--green2), 0 0 10px var(--green2), 0 0 20px var(--green2);
     }
 
-    .header, .select-style select {
+    .header, .select-style {
         font-size: 12px;
     }
 
