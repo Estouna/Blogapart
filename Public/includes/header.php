@@ -32,10 +32,10 @@ $nav_categories = $categoriesModel->findAll();
         <nav id="mainNav" class="nav w-100 flex justify-content-end align-items-center">
             <div class="nav-block1">
                 <ul class="nav-ul flex centerAll">
-                    <li class="nav-li mx-6 my-2">
+                    <li class="nav-li mx-6 my-1">
 
                         <select class="select-style py-2" onChange="window.location=this.options[this.selectedIndex].value;">
-                            <option value="" class="titleSelect" selected>CATEGORIES</option>
+                            <option value="" class="titleSelect" selected><?= isset($cat->nom) ? $cat->nom : 'Catégories';?></option>
                             <?php foreach ($nav_categories as $cat) : ?>
                                 <option value="/categories/categorie/<?= $cat->id ?>"><?= $cat->nom ?></option>
                             <?php endforeach; ?>
@@ -43,21 +43,21 @@ $nav_categories = $categoriesModel->findAll();
                         </select>
 
                     </li>
-                    <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/">ACCUEIL</a></li>
+                    <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/">Accueil</a></li>
 
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
 
-                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/profil">PROFIL</a></li>
+                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/profil">Profil</a></li>
 
                         <?php if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] === 1337 || $_SESSION['user']['id_droits'] === 42) : ?>
-                            <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/admin">ADMIN</a></li>
+                            <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/admin">Admin</a></li>
                         <?php endif; ?>
 
-                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/deconnexion">DECONNEXION</a></li>
+                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/deconnexion">Déconnexion</a></li>
                         
                     <?php else : ?>
-                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/connexion">CONNEXION</a></li>
-                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/inscription">INSCRIPTION</a></li>
+                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/connexion">Connexion</a></li>
+                        <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/utilisateurs/inscription">Inscription</a></li>
                     <?php endif; ?>
 
                 </ul>

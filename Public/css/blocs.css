@@ -3,7 +3,7 @@ body {
 }
 
 /*
-    -------------------------------------------------------- LISTE DES ARTICLES (page articles/index.php) -------------------------------------------------------- 
+    -------------------------------------------------------- ARTICLES -------------------------------------------------------- 
 */
 .bloc-article {
     border: 4px double var(--green2);
@@ -11,45 +11,55 @@ body {
     width: calc(250px + 20vw);
 }
 
-.text-article, .article-points{
-    background-color: var(--white);
-}
-
-.text-article {
-    border-radius: 9px 9px 0 0;
-    color: var(--black);
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 /*
-    -------------------------------------------------------- LIRE UN ARTICLE (page articles/lire.php) -------------------------------------------------------- 
-*/
-.article-date{
-    border-bottom: 1px solid var(--green2);
-}
-
-.bloc-lireArticle {
-    border: 4px double var(--green2);
-    border-radius: 15px;
-    width: calc(150px + 50vw);
-}
-
-.text-lireArticle {
-    background-color: var(--white);
-    border-radius: 9px 9px 0 0;
-    color: var(--black);
-}
-
-.article-date{
-    border-bottom: 1px solid var(--green2);
-}
-
-/*
-    -------------------------------------------------------- LISTE DE 3 ARTICLES (page d'accueil) -------------------------------------------------------- 
+    -------- LISTE DE 3 ARTICLES (page d'accueil) --------
 */
 .bloc-article2 {
     border: 4px double var(--green2);
     border-radius: 15px;
     width: calc(260px + 15vw);
+}
+
+/*
+    -------- LISTE DE 3 ARTICLES (page d'accueil) --------
+*/
+.bloc-lire-article {
+    border: 4px double var(--green2);
+    border-radius: 15px;
+    width: calc(185px + 40vw);
+}
+
+
+
+.text-article, .titre-article, .date-article, .lire-text-article {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.titre-article{
+    font-weight: bold;
+    border-radius: 9px 9px 0 0;
+}
+
+.text-article {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lire-text-article{
+    border-radius: 0px 0px 9px 9px;
+}
+
+
+/*
+    -------- COMMENTAIRE --------
+*/
+.post-form {
+    border: 4px double var(--green2);
+    border-radius: 15px;
+    width: calc(250px + 20vw);
+}
+
+.post-textarea {
+    width: 95%;
 }

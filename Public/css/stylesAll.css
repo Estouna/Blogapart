@@ -6,6 +6,7 @@
 .container{padding: 50px 0;}
 html {scroll-behavior: smooth;}
 body{height: 100vh; color: var(--white);}
+textarea{resize: none;};
 body, input, button, textarea, select {font-size: calc(14px + 0.15vw);}
 ul {list-style-type: none;}
 h1, h2, h3, h4, h5, h6 {font-family: var(--font-poppLight);}
@@ -86,6 +87,7 @@ a, .unselectable {
 
 .nav-a {
     display: block;
+    color: var(--text-white);
 }
 
 .nav-a:hover {
@@ -114,8 +116,9 @@ a, .unselectable {
 .select-style {
     font-family: var(--font-roboLight);
     font-size: 14px;
-    width: 120%;
+    width: calc(110px + 2.8vw);
     background-color: var(--black);
+    color: var(--text-white);
     box-shadow: none;
     border: none;
     transition: 0.2s;
@@ -130,7 +133,7 @@ a, .unselectable {
 }
 
 .select-style:focus {
-    color: var(--text-green2);
+    color: var(--text-green1);
     outline: none;
     border: none;
 }
@@ -216,10 +219,17 @@ a, .unselectable {
 .ft-3 {font-size: calc(10px + 0.15vw);}
 .ft-4 {font-size: calc(11px + 0.15vw);}
 .ft-5 {font-size: calc(14px + 0.15vw);}
+.ft-6 {font-size: calc(16px + 0.15vw);}
+.ft-7 {font-size: calc(18px + 0.15vw);}
+.ft-8 {font-size: calc(20px + 0.15vw);}
+.ft-9 {font-size: calc(22px + 0.15vw);}
+.ft-10 {font-size: calc(24px + 0.15vw);}
+
 .h1 {font-size: calc(28px + 0.35vw);}
 .h2 {font-size: calc(21px + 0.15vw);}
 .h3 {font-size: calc(17px + 0.15vw);}
 .h4 {font-size: calc(14px + 0.15vw);}
+.h5, .h6 {font-size: calc(13px + 0.15vw);}
 
 /*
     ------------------------------------------------------ MARGIN ------------------------------------------------------
@@ -618,4 +628,6 @@ a, .unselectable {
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+
+
 }

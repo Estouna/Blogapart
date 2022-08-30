@@ -28,7 +28,7 @@ class AdminController extends Controller
             // Vérifie que les champs existent et ne sont pas vides
             if (Form::validate($_POST, ['article'], ['articleCategorie'])) {
 
-                $article = Form::valid_donnees($_POST['article']);
+                $article = nl2br(Form::valid_donnees($_POST['article']));
                 $categorie_parente = $_POST['articleCategorie'];
                 // Vérifie qu'une catégorie a bien été sélectionnée
                 if (isset($categorie_parente) && !empty($categorie_parente)) {
