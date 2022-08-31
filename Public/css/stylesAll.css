@@ -154,7 +154,7 @@ a, .unselectable {
 
     /* --------------- COLORS ----------------- */
     --black: rgb(0, 0, 0);
-    --darkGrey: rgb(19, 19, 19);
+    --darkGrey: rgb(31, 31, 31);
     --white: rgb(255, 255, 255);
     --green1: rgb(0, 197, 158);
     --green2: rgb(8, 248, 200);
@@ -505,6 +505,7 @@ a, .unselectable {
 .h-90{height: 90%;}
 .h-95{height: 95%;}
 .h-100{height: 100%;}
+.h-auto{height: auto;}
 
 
 .vh-5{height: 5vh;}

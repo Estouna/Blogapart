@@ -23,7 +23,7 @@ button, .input-title {
     transition: 0.5s; 
 }
 
-a:hover, a:focus{
+a:hover, button:hover {
     color: var(--text-green1);
 }
 

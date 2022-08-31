@@ -1,55 +1,74 @@
-body {
+body, .categorie-article {
     background-color: var(--black);
 }
 
 /*
     -------------------------------------------------------- ARTICLES -------------------------------------------------------- 
 */
-.bloc-article {
-    border: 4px double var(--green2);
-    border-radius: 15px;
-    width: calc(250px + 20vw);
-}
 
-/*
-    -------- LISTE DE 3 ARTICLES (page d'accueil) --------
-*/
-.bloc-article2 {
-    border: 4px double var(--green2);
-    border-radius: 15px;
-    width: calc(260px + 15vw);
-}
-
-/*
-    -------- LISTE DE 3 ARTICLES (page d'accueil) --------
-*/
-.bloc-lire-article {
-    border: 4px double var(--green2);
-    border-radius: 15px;
-    width: calc(185px + 40vw);
-}
-
-
-
-.text-article, .titre-article, .date-article, .lire-text-article {
+.text-article, .titre-article, .date-article, .lire-text-article, .lire-titre-article {
     color: var(--black);
+}
+
+.bloc-article {
     background-color: var(--white);
+    width: calc(110px + 18vw);
 }
 
 .titre-article{
     font-weight: bold;
-    border-radius: 9px 9px 0 0;
+    border-radius: 0 8px 0 0;
 }
 
 .text-article {
     overflow: hidden;
     text-overflow: ellipsis;
+    border-radius: 0 0 0 8px;
 }
+
+/*
+-------- LISTE DE 3 ARTICLES (main/index.php) --------
+*/
+.bloc-article2 {
+    background-color: var(--white);
+    width: calc(120px + 10vw);
+}
+
+.bloc-imgArticle {
+    border: 4px double var(--green2);
+    border-radius: 15px;
+}
+
+.img-home {
+    width: calc(120px + 3.5vw);
+    min-height: 100%;
+    border-radius: 8px 0;
+}
+
+.link-lire {
+    background-color: var(--darkGrey);
+    border-radius: 0 0 11px 11px;
+}
+
+/*
+    -------- LIRE UN ARTICLE (articles/lire.php) --------
+*/
+.lire-bloc-article {
+    background-color: var(--white);
+    border: 4px double var(--green2);
+    border-radius: 15px;
+    width: calc(185px + 40vw);
+}
+
+.lire-titre-article{
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
 
 .lire-text-article{
     border-radius: 0px 0px 9px 9px;
 }
-
 
 /*
     -------- COMMENTAIRE --------

@@ -5,14 +5,19 @@ namespace App\Controllers;
 use App\Models\ArticlesModel;
 use App\Core\Form;
 use App\Models\CommentairesModel;
+use App\Models\CategoriesModel;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
+        $categoriesModel = new CategoriesModel;
+        $categories = $categoriesModel->findAll();
+        
         $articlesModel = new ArticlesModel;
         $articles = $articlesModel->findAll();
-        $this->render('articles/index', compact('articles'));
+
+        $this->render('articles/index', compact('articles', 'categories'));
     }
 
     /* 
