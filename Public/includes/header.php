@@ -39,7 +39,7 @@ $nav_categories = $categoriesModel->findAll();
                             <?php foreach ($nav_categories as $cat) : ?>
                                 <option value="/categories/categorie/<?= $cat->id ?>"><?= $cat->nom ?></option>
                             <?php endforeach; ?>
-                            <option value="/articles">Tous les articles</option>
+                            <option value="/articles/index/?start=1">Tous les articles</option>
                         </select>
 
                     </li>

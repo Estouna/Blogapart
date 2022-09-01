@@ -3,6 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+pre {
+    color: var(--white);
+    position: relative;
+    top: 50px;
+}
+
+.xdebug-error {
+    color: var(--black);
+    position: relative;
+    top: 100px;
+}
+
+
+
 .container{padding: 50px 0;}
 html {scroll-behavior: smooth;}
 body{height: 100vh; color: var(--white);}
@@ -15,7 +30,6 @@ p, a, button, input {font-family: var(--font-roboLight);}
 a, .unselectable {
     text-decoration: none;
     user-select: none;
-    transition: 0.5s;
 }
 
 .text-center {text-align: center;}
@@ -121,7 +135,6 @@ a, .unselectable {
     color: var(--text-white);
     box-shadow: none;
     border: none;
-    transition: 0.2s;
 }
 
 .titleSelect {
@@ -145,7 +158,7 @@ a, .unselectable {
     /* --------------- TEXT COLOR ----------------- */
     --text-black: rgb(0, 0, 0);
     --text-white: rgb(255, 255, 255);
-    --text-grey: rgb(121, 121, 121);
+    --text-grey: rgb(148, 148, 148);
     --text-green1: rgb(0, 197, 158);
     --text-green2: rgb(8, 248, 200);
     --text-red: rgb(255, 95, 95);
@@ -155,6 +168,7 @@ a, .unselectable {
     /* --------------- COLORS ----------------- */
     --black: rgb(0, 0, 0);
     --darkGrey: rgb(31, 31, 31);
+    --grey: rgb(121, 121, 121);
     --white: rgb(255, 255, 255);
     --green1: rgb(0, 197, 158);
     --green2: rgb(8, 248, 200);

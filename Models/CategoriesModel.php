@@ -7,11 +7,17 @@ class CategoriesModel extends Model
     protected $id;
     protected $nom;
 
+    /* 
+        -------------------------------------------------------- CONSTRUCTEUR --------------------------------------------------------
+    */
     public function __construct()
     {
         $this->table = 'categories';
     }
-
+    
+    /* 
+        -------------------------------------------------------- METHODES --------------------------------------------------------
+    */
     /* 
        ----------  TROUVER L'ID DE LA CATEGORIE PARENTE (pour articles) ----------
     */

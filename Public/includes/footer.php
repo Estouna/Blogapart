@@ -3,7 +3,7 @@
         <ul class="flex centerAll">
             <li class="mx-3 my-1"><a class="nav-a py-2" href="/">ACCUEIL</a></li>
             <li class="mx-3 my-1"><a class="nav-a py-2" href="/categories">CATEGORIES</a></li>
-            <li class="mx-3 my-1"><a class="nav-a py-2" href="/articles">ARTICLES</a></li>
+            <li class="mx-3 my-1"><a class="nav-a py-2" href="/articles/index/?start=1">ARTICLES</a></li>
             <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
 
                 <li class="nav-li mx-3 my-1"><a class="nav-a py-2" href="/utilisateurs/profil">PROFIL</a></li>

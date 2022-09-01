@@ -13,11 +13,11 @@ body, .categorie-article {
 .bloc-article {
     background-color: var(--white);
     width: calc(110px + 18vw);
+    border-radius: 0 8px 0 0;
 }
 
 .titre-article{
     font-weight: bold;
-    border-radius: 0 8px 0 0;
 }
 
 .text-article {
@@ -32,6 +32,7 @@ body, .categorie-article {
 .bloc-article2 {
     background-color: var(--white);
     width: calc(120px + 10vw);
+    border-radius: 0 8px 0 0;
 }
 
 .bloc-imgArticle {

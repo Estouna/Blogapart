@@ -31,4 +31,4 @@
     <?php endforeach; ?>
 </div>
 
-<a class="my-5" href="/articles">Tous les articles</a>
+<a class="my-5" href="/articles/index/?start=1">Tous les articles</a>

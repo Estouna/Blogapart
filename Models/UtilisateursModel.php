@@ -23,7 +23,6 @@ class UtilisateursModel extends Model
     /* 
         -------------------------------------------------------- METHODES --------------------------------------------------------
     */
-
     /* 
        ----------  TROUVER UN UTILISATEUR PAR SON EMAIL OU VERIFIER SI L'EMAIL EXISTE  ----------
     */

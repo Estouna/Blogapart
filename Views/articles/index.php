@@ -19,16 +19,16 @@
                 <?php endif; ?>
                 <div class="column centerAll">
 
-                    <article class="bloc-article">
-                        <?php foreach ($categories as $c) : ?>
+                    <?php foreach ($categories as $c) : ?>
+                        <article class="bloc-article">
                             <?php if (isset($c->id) && $a->id_categorie === $c->id) : ?>
                                 <p class="titre-article mt-3 mx-3 pt-5 pb-3 px-2 ft-8">ARTICLE</p>
                                 <p class="categorie-article mx-3 p-2 ft-1">Catégorie <?= $c->nom ?></p>
                                 <p class="date-article mx-3 p-2 ft-1">Date <?= $a->date ?></p>
                                 <p class="text-article mx-3 p-2 vh-30"><?= $a->article ?></p>
                             <?php endif; ?>
-                        <?php endforeach; ?>
-                    </article>
+                        </article>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
@@ -37,3 +37,19 @@
             </div>
         </div>
     <?php endforeach; ?>
+
+    <nav>
+        <ul class="pagination row gap">
+            <li class="mr-1 page-item <?= ($currentStart == 1) ? "disabled" : "" ?>">
+                <a href="./<?= $currentStart - 1 ?>" class="page-link">Précédente</a>
+            </li>
+            <?php for ($start = 1; $start <= $starts; $start++) : ?>
+                <li class="mx-1 page-item <?= ($currentStart == $start) ? "active" : "" ?>">
+                    <a href="./<?= $start ?>" class="page-link"><?= $start ?></a>
+                </li>
+            <?php endfor ?>
+            <li class="ml-1 page-item <?= ($currentStart == $starts) ? "disabled" : "" ?>">
+                <a href="./<?= $currentStart + 1 ?>" class="page-link">Suivante</a>
+            </li>
+        </ul>
+    </nav>

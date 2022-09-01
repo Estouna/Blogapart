@@ -2,6 +2,10 @@ a, select, button, label, h1, h2, h3, h4, h5, h6, .input-title,.succes, .alert {
     letter-spacing: calc(1px + 0.13vw);
 }
 
+a, button{
+    transition: 0.2s;
+}
+
 a, select, .input-title,.succes {
     color: var(--text-green2);
 }
@@ -20,7 +24,6 @@ button, .input-title {
     border-radius: 5px;
     outline: none;
     border: 1px solid var(--green2);
-    transition: 0.5s; 
 }
 
 a:hover, button:hover {
@@ -32,6 +35,23 @@ button:active, .input-title:active {
     outline: none;
     color: var(--text-green1); 
     border: 1px solid var(--green1); 
+}
+
+/*
+    ------- PAGINATION -------
+*/
+.disabled .page-link{
+    cursor: default;
+    pointer-events: none;        
+    text-decoration: none;
+    color: var(--text-grey);
+}
+
+.active .page-link{
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;        
+    color: var(--text-white);
 }
 
 /*
@@ -50,7 +70,6 @@ button:active, .input-title:active {
     border-radius: 5px;
     width: calc(200px + 2vw);
     box-shadow: none;
-    transition: 0.2s;
 }
 
 .select-style2:hover {
