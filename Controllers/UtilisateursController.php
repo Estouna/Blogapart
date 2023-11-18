@@ -24,7 +24,7 @@ class UtilisateursController extends Controller
             if (Form::validate($_POST, ['login', 'password'])) {
                 // Récupère l'utilisateur par son login
                 $userModel = new UtilisateursModel;
-                $userArray = $userModel->checkIfLoginAlreadyExist(htmlspecialchars($_POST['login']));
+                $userArray = $userModel->findOneByEmail(htmlspecialchars($_POST['login']));
 
                 // Si l'utilisateur n'existe pas
                 if (!$userArray) {
@@ -34,12 +34,13 @@ class UtilisateursController extends Controller
                 }
 
                 // S'il existe hydrate l'objet
-                $user = $userModel->hydrate($userArray);
+                // $user = $userModel->hydrate($userArray); marche pas bizarre
+                $userModel->hydrate($userArray);
 
                 // Vérifie le mot de passe
-                if (password_verify($_POST['password'], $user->getPassword())) {
+                if (password_verify($_POST['password'], $userModel->getPassword())) {
                     // Si bon mot de passe, création de la session
-                    $user->setSession();
+                    $userModel->setSession();
 
                     // Si admin redirige vers admin
                     if (isset($_SESSION['user']['id_droits']) && $_SESSION['user']['id_droits'] === 1337) {
@@ -114,7 +115,6 @@ class UtilisateursController extends Controller
 
                         $verif_email = $user->findOneByEmail($email);
                         if ($verif_email) {
-                            // http_response_code(404);
                             $_SESSION['erreur'] = 'Cet email existe déjà';
                             header('Location: /utilisateurs/inscription');
                             exit;

@@ -24,7 +24,7 @@ class AdminController extends Controller
 
             $categoriesModel = new CategoriesModel;
             $categories = $categoriesModel->findAll();
-            
+
             // Vérifie que les champs existent et ne sont pas vides
             if (Form::validate($_POST, ['article'], ['articleCategorie'])) {
 
@@ -47,14 +47,13 @@ class AdminController extends Controller
                     $_SESSION['success'] = "Votre article a été enregistrée";
                     header('Location: /admin');
                     exit;
-                }else{
+                } else {
                     $_SESSION['erreur'] = !empty($_POST) ? 'Vous devez choisir une catégorie avant de valider' : '';
                 }
             } else {
                 $_SESSION['erreur'] = !empty($_POST) ? 'Vous devez écrire votre article avant de valider' : '';
             }
             $this->render('admin/creer_article', compact('categories'));
-
         }
     }
 

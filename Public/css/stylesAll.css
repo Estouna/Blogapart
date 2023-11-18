@@ -10,14 +10,6 @@ pre {
     top: 50px;
 }
 
-.xdebug-error {
-    color: var(--black);
-    position: relative;
-    top: 100px;
-}
-
-
-
 .container{padding: 50px 0;}
 html {scroll-behavior: smooth;}
 body{height: 100vh; color: var(--white);}
@@ -30,6 +22,7 @@ p, a, button, input {font-family: var(--font-roboLight);}
 a, .unselectable {
     text-decoration: none;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 .text-center {text-align: center;}

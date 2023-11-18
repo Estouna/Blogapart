@@ -13,6 +13,7 @@ $nav_categories = $categoriesModel->findAll();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/favicon2.png">
     <link rel="stylesheet" href="/css/stylesAll.css">
     <link rel="stylesheet" href="/css/blocs.css">
     <link rel="stylesheet" href="/css/btnLinkInput.css">
@@ -26,12 +27,15 @@ $nav_categories = $categoriesModel->findAll();
 <body>
 
     <header class="header flex justify-content-end align-items-center">
+
         <div class="ml-4 py-2">
-            <a class="logo ft-5" href="/">BLOG<span class="spanLogo">A</span>PART</a>
+            <a class="logo ft-5" href="/main">BLOG<span class="spanLogo">A</span>PART</a>
         </div>
+
         <nav id="mainNav" class="nav w-100 flex justify-content-end align-items-center">
             <div class="nav-block1">
                 <ul class="nav-ul flex centerAll">
+                    
                     <li class="nav-li mx-6 my-1">
 
                         <select class="select-style py-2" onChange="window.location=this.options[this.selectedIndex].value;">
@@ -39,11 +43,12 @@ $nav_categories = $categoriesModel->findAll();
                             <?php foreach ($nav_categories as $cat) : ?>
                                 <option value="/categories/categorie/<?= $cat->id ?>"><?= $cat->nom ?></option>
                             <?php endforeach; ?>
-                            <option value="/articles/index/?start=1">Tous les articles</option>
+                            <option value="/articles/tousLesArticles/1">Tous les articles</option>
                         </select>
 
                     </li>
-                    <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/">Accueil</a></li>
+
+                    <li class="nav-li mx-5 my-1"><a class="nav-a py-2" href="/main">Accueil</a></li>
 
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
 

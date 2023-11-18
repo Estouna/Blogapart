@@ -18,14 +18,21 @@ class Model extends Db
         -------------------------------------------------------- READ --------------------------------------------------------
     */
 
-    // Récupère toutes les données d'une table
+    /**
+     * Sélection de tous les enregistrements d'une table
+     * @return array Tableau des enregistrements trouvés
+    */
     public function findAll()
     {
-        $query = $this->requete('SELECT * FROM ' . $this->table);
+        $query = $this->requete('SELECT * FROM ' .$this->table);
         return $query->fetchAll();
     }
 
-    // Récupère les données d'une table par critères (par ex : "$annonces = $model->findBy([‘actif’ => 1]) ;")
+    /**
+     * Sélection de plusieurs enregistrements suivant un tableau de critères (ex : $annonces = $model->findBy([‘actif’ => 1]) ;)
+     * @param array $criteres Tableau de critères
+     * @return array Tableau des enregistrements trouvés
+    */
     public function findBy(array $criteres)
     {
         // Tableaux vides pour les champs et les valeurs
@@ -34,7 +41,6 @@ class Model extends Db
 
         // Boucle pour éclater le tableau $criteres en deux tableaux
         foreach ($criteres as $champ => $valeur) {
-
             // On push dans les tableaux $champs et $valeurs ($valeur pour le ? de "$champ = ?")
             $champs[] = "$champ = ?";
             $valeurs[] = $valeur;
@@ -46,7 +52,11 @@ class Model extends Db
         return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs", $valeurs)->fetchAll();
     }
 
-    // Récupère un élément par son id
+    /**
+     * Sélection d'un enregistrement suivant son id
+     * @param integer $id id de l'enregistrement
+     * @return array Tableau contenant l'enregistrement trouvé
+    */
     public function find(int $id)
     {
         return $this->requete("SELECT * FROM {$this->table} WHERE id = $id")->fetch();
@@ -56,8 +66,12 @@ class Model extends Db
     /* 
         -------------------------------------------------------- REQUÊTE --------------------------------------------------------
     */
-
-    // Execute ou prépare une requête selon les cas
+    /**
+     * Méthode qui exécutera ou préparera les requêtes selon les cas
+     * @param string $sql Requête SQL à exécuter
+     * @param array|null $attributs Attributs à ajouter à la requête
+     * @return PDOStatement|false 
+    */
     public function requete(string $sql, array $attributs = null)
     {
         // Récupère l'instance de Db
@@ -79,7 +93,10 @@ class Model extends Db
     /* 
         -------------------------------------------------------- CREATE --------------------------------------------------------
     */
-
+    /**
+     * Insertion d'un enregistrement suivant un tableau de données
+     * @return bool
+    */
     public function create()
     {
         $champs = [];
@@ -107,21 +124,26 @@ class Model extends Db
     /* 
         -------------------------------------------------------- UPDATE --------------------------------------------------------
     */
-
-    public function update()
+    /**
+     * Mise à jour d'un enregistrement suivant un tableau de données
+     * @param integer $id id de l'enregistrement à modifier
+     * @param Model $model Objet à modifier
+     * @return bool
+    */
+    public function update(int $id, Model $model)
     {
         $champs = [];
         $valeurs = [];
 
         // Boucle pour éclater le tableau
-        foreach ($this as $champ => $valeur) {
+        foreach ($model as $champ => $valeur) {
             // ex : UPDATE annonces SET titre = ?, description = ?, actif = ? WHERE id= ?
             if ($valeur !== null && $champ != 'db' && $champ != 'table') {
                 $champs[] = "$champ = ?";
                 $valeurs[] = $valeur;
             }
         }
-        $valeurs[] = $this->id;
+        $valeurs[] = $id;
 
         // Transforme le tableau champs en une chaîne de caractères
         $liste_champs = implode(', ', $champs);
@@ -133,7 +155,11 @@ class Model extends Db
     /* 
         -------------------------------------------------------- DELETE --------------------------------------------------------
     */
-
+    /**
+     * Suppression d'un enregistrement
+     * @param integer $id id de l'enregistrement à supprimer
+     * @return bool
+    */
     public function delete(int $id)
     {
         return $this->requete("DELETE FROM {$this->table} WHERE id = ?", [$id]);
@@ -143,7 +169,11 @@ class Model extends Db
     /* 
         -------------------------------------------------------- HYDRATER --------------------------------------------------------
     */
-
+    /**
+     * Hydratation des données
+     * @param array $donnees Tableau associatif des données
+     * @return self Retourne l'objet hydraté
+    */
     public function hydrate($donnees)
     {
         foreach ($donnees as $key => $value) {
